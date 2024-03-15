@@ -1,3 +1,11 @@
+html{
+  box-sizing: border-box;
+}
+
+*{
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +13,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(0, 0, 0,0.1);
+}
+
+p{
+  margin: 0;
+  margin-bottom: 10px;
 }
 
 code {
@@ -18,4 +32,49 @@ code {
   margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+header{
+  padding: 20px 0;
+  background-color: #6699FF;
+}
+
+.Form{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.Form > *  {
+ width: 30%;
+ height: 30px;
+ border-radius: 4px;
+}
+
+.Contacts{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin-top: 40px;
+  
+}
+
+.Contact{
+  display: inline-block;
+  list-style: none;
+  padding: 20px 40px;
+  border: 1px #000 solid;
+  border-radius: 10px;
+  background-color: #fff ;
+}
+
+.Filter{
+  margin-top: 40px;
+}
+
+.Filter > input {
+  height: 30px;
+  padding: 5px;
 }

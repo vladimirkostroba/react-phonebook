@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { nanoid } from 'nanoid'
 
 import Form from "./Components/Form/Form";
@@ -14,6 +14,11 @@ export default function App(){
    
 
    const handleAddContact =(name,number)=> {
+
+        if(!name || !number ){
+            alert('Complete the form')
+            return
+        }
         const contact = {
             name:name,
             number:number,
@@ -21,7 +26,7 @@ export default function App(){
         }
 
         if(findExsistingContact(contact)){
-            alert('такой контакт уже есть');
+            alert('Contact already exists');
             return;
         }
 
@@ -65,13 +70,21 @@ const wisibleContacts = getWisibleContacts();
 
 
    return(
-    
+    <Fragment>
+    <header>
+        <Layout>
+            <Form onAddContact={handleAddContact}/>
+        </Layout>
+    </header>
+
     <Layout>
-        <Form onAddContact={handleAddContact}/>
         {contacts.length > 1 && <Filter value={filter} onChange={setFilter}/>}
         {contacts.length > 0 && 
         <ContactList contacts={wisibleContacts} onRemove={removeContact}/>}
     </Layout>
+    </Fragment>
+    
+    
    
    )
 }
